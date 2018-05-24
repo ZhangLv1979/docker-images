@@ -8,4 +8,4 @@ RUN mkdir -p /usr/share/logstash/plugins
 RUN curl -k -o /usr/share/logstash/plugins/postgresql-42.2.2.jar https://jdbc.postgresql.org/download/postgresql-42.2.2.jar
 RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 ADD pipeline/ /usr/share/logstash/pipeline/
-ADD config/ /usr/share/logstash/config/
+# ADD config/ /usr/share/logstash/config/
