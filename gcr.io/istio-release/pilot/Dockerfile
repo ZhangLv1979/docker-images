@@ -1,1 +1,1 @@
-FROM gcr.io/istio-release/pilot:release-1.0-latest-daily
+FROM gcr.io/istio-release/pilot:1.0.1

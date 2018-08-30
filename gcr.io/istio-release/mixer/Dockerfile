@@ -1,1 +1,1 @@
-FROM gcr.io/istio-release/mixer:release-1.0-latest-daily
+FROM gcr.io/istio-release/mixer:1.0.1
