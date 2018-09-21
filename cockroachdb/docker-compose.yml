@@ -1,0 +1,39 @@
+version: "3"
+services:
+  roach1:
+    image: cockroachdb/cockroach:v2.0.5
+    command: ['start', '--insecure']
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    networks:
+      - roachnet
+    volumes:
+    - cockroachdb-data-1:/var/lib/postgresql/data
+    restart: always
+  roach2:
+    image: cockroachdb/cockroach:v2.0.5
+    depends_on:
+      - roach1
+    command: ['start', '--insecure', '--join=roach1']
+    networks:
+      - roachnet
+    volumes:
+    - cockroachdb-data-2:/var/lib/postgresql/data
+    restart: always
+  roach3:
+    image: cockroachdb/cockroach:v2.0.5
+    depends_on:
+      - roach1
+    command: ['start', '--insecure', '--join=roach1']
+    networks:
+      - roachnet
+    volumes:
+    - cockroachdb-data-3:/var/lib/postgresql/data
+    restart: always
+networks:
+  roachnet:
+volumes:
+  cockroachdb-data-1:
+  cockroachdb-data-2:
+  cockroachdb-data-3:
