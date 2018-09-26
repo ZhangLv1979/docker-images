@@ -10,6 +10,7 @@ services:
       - roachnet
     volumes:
     - cockroachdb-data-1:/var/lib/postgresql/data
+    - cockroachdb-cert:/cockroach/certs/
     restart: always
   roach2:
     image: cockroachdb/cockroach:v2.0.5
@@ -20,6 +21,7 @@ services:
       - roachnet
     volumes:
     - cockroachdb-data-2:/var/lib/postgresql/data
+    - cockroachdb-cert:/cockroach/certs/
     restart: always
   roach3:
     image: cockroachdb/cockroach:v2.0.5
@@ -30,6 +32,7 @@ services:
       - roachnet
     volumes:
     - cockroachdb-data-3:/var/lib/postgresql/data
+    - cockroachdb-cert:/cockroach/certs/
     restart: always
   adminer:
     image: adminer
@@ -39,9 +42,11 @@ services:
       - roachnet
     ports:
       - "8081:8080"
+    restart: always
 networks:
   roachnet:
 volumes:
   cockroachdb-data-1:
   cockroachdb-data-2:
   cockroachdb-data-3:
+  cockroachdb-cert:
