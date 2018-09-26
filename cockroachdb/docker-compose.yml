@@ -31,6 +31,14 @@ services:
     volumes:
     - cockroachdb-data-3:/var/lib/postgresql/data
     restart: always
+  adminer:
+    image: adminer
+    depends_on: 
+      - roach1
+    networks:
+      - roachnet
+    ports:
+      - "8081:8080"
 networks:
   roachnet:
 volumes:
