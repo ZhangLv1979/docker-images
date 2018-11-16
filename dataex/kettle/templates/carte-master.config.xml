@@ -1,0 +1,10 @@
+<slave_config>
+  <slaveserver>
+    <name>CARTE_NAME</name>
+    <hostname>CARTE_HOSTNAME</hostname>
+    <port>CARTE_PORT</port>
+    <username>CARTE_USER</username>
+    <password>CARTE_PASSWORD</password>
+    <master>CARTE_IS_MASTER</master>
+  </slaveserver>
+</slave_config>
