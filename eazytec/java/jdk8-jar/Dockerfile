@@ -3,17 +3,21 @@ FROM openjdk:8-jdk-alpine
 
 LABEL maintainer="zhanglv@eazytec.com"
 
-ENV JAR "echo.jar"
+ENV JAR="echo.jar" \
+    JVM_ARGS="" \
+    HOME="/opt/eazytec"
 
-RUN mkdir -p /opt/eazytec && \
+RUN mkdir -p ${HOME} && \
     addgroup -g 1000 eazytec && \
-    adduser -D -u 1000 -h /opt/eazytec -G eazytec eazytec && \
-    chmod 777 /opt/eazytec
+    adduser -D -u 1000 -h ${HOME} -G eazytec eazytec && \
+    chmod 777 ${HOME}
 
 USER eazytec
 
-COPY "${JAR}" "/opt/eazytec/${JAR}"
+WORKDIR ${HOME}
+
+COPY "." "."
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "/opt/eazytec/${JAR}"]
+ENTRYPOINT ["entrypoint.sh"]
