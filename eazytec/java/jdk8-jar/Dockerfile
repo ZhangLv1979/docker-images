@@ -12,8 +12,8 @@ RUN mkdir -p /opt/eazytec && \
 
 USER eazytec
 
-COPY "${JAR}" "${JAR}"
+COPY "${JAR}" "/opt/eazytec/${JAR}"
 
 EXPOSE 8080
 
-CMD [ "java", "-jar", "${JAR}" ]
+ENTRYPOINT ["java", "-jar", "/opt/eazytec/${JAR}"]
