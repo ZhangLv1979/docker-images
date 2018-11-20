@@ -1,0 +1,11 @@
+<repositories>
+  <repository>
+    <id>KettleFileRepository</id>
+    <name>local</name>
+    <description>File repository</description>
+    <is_default>true</is_default>
+    <base_directory>KETTLE_REPO</base_directory>
+    <read_only>Y</read_only>
+    <hides_hidden_files>Y</hides_hidden_files>
+  </repository>
+</repositories>
