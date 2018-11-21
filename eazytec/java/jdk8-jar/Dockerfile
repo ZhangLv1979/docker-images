@@ -10,7 +10,8 @@ ENV JAR="echo.jar" \
 RUN mkdir -p ${HOME} && \
     addgroup -g 1000 eazytec && \
     adduser -D -u 1000 -h ${HOME} -G eazytec eazytec && \
-    chmod 777 ${HOME}
+    chmod 777 ${HOME} && \
+    export ${PATH}=${HOME}|${PATH}
 
 USER eazytec
 
@@ -20,4 +21,4 @@ COPY "." "."
 
 EXPOSE 8080
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
