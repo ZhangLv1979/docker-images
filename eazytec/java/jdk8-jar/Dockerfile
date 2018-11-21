@@ -18,7 +18,7 @@ WORKDIR ${HOME}
 
 COPY "." "."
 
-RUN chmod -r 777 ${HOME}
+RUN chmod -R 777 ${HOME}
 
 EXPOSE 8080
 
