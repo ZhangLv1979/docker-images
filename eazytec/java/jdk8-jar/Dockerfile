@@ -5,13 +5,13 @@ LABEL maintainer="zhanglv@eazytec.com"
 
 ENV JAR="echo.jar" \
     JVM_ARGS="" \
-    HOME="/opt/eazytec"
+    HOME="/opt/eazytec" \
+    PATH="${PATH}:${HOME}"
 
 RUN mkdir -p ${HOME} && \
     addgroup -g 1000 eazytec && \
     adduser -D -u 1000 -h ${HOME} -G eazytec eazytec && \
-    chmod 777 ${HOME} && \
-    export ${PATH}=${HOME}|${PATH}
+    chmod 777 ${HOME}
 
 USER eazytec
 
