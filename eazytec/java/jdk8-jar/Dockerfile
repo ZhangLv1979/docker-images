@@ -12,14 +12,15 @@ RUN mkdir -p ${HOME} && \
     addgroup -g 1000 eazytec && \
     adduser -D -u 1000 -h ${HOME} -G eazytec eazytec 
 
-USER eazytec
-
 WORKDIR ${HOME}
 
 COPY "." "."
 
-RUN chmod -R 777 ${HOME}
+RUN chown -R eazytec:eazytec ${HOME} && \ 
+    chmod -R 777 ${HOME}
 
 EXPOSE 8080
+
+USER eazytec
 
 ENTRYPOINT ["./entrypoint.sh"]
