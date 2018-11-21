@@ -10,14 +10,15 @@ ENV JAR="echo.jar" \
 
 RUN mkdir -p ${HOME} && \
     addgroup -g 1000 eazytec && \
-    adduser -D -u 1000 -h ${HOME} -G eazytec eazytec && \
-    chmod 777 ${HOME}
+    adduser -D -u 1000 -h ${HOME} -G eazytec eazytec 
 
 USER eazytec
 
 WORKDIR ${HOME}
 
 COPY "." "."
+
+RUN chmod -r 777 ${HOME}
 
 EXPOSE 8080
 
