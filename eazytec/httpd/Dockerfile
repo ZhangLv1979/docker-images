@@ -9,6 +9,7 @@ RUN mkdir -p /opt/eazytec && \
 
 # change listen port to 8080 to avoid permission issue, also set server name manual to avoid automethod fail.
 COPY ./httpd.conf /usr/local/apache2/conf/
+COPY ./.htaccess /usr/local/apache2/htdocs/
 
 # allow user to run with root temporary, disabled, probably not needed.
 RUN chown -R eazytec:eazytec /usr/local/apache2 && \
