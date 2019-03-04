@@ -3,6 +3,7 @@ services:
   etcd:
     image: quay.io/coreos/etcd:latest
     command: 
+      - etcd
       - --data-dir=/data
       - --listen-client-urls=http://0.0.0.0:2379
       - --advertise-client-urls=http://10.0.254.130.xip.io:2379
