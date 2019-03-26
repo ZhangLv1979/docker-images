@@ -2,6 +2,11 @@ FROM tomcat:7-jre8-alpine
 
 LABEL maintainer="zhanglv@eazytec.com"
 
+ENV TZ Asia/Shanghai
+
+RUN apk add --no-cache tzdata && \
+    cp -r -f /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN mkdir -p /opt/eazytec && \
     addgroup -g 1000 eazytec && \
     adduser -D -u 1000 -h /opt/eazytec -G eazytec eazytec && \

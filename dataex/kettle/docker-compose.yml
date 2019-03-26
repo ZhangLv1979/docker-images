@@ -9,7 +9,7 @@ services:
     - "/root/repo:/approot/repo"
     networks: 
     - ntkettle
-    env:
+    environment:
       CARTE_IS_MASTER: "Y"
       CARTE_MASTER_NAME: "carte-master"
       CARTE_MASTER_HOSTNAME: "carte-master"
@@ -24,7 +24,7 @@ services:
     - ntkettle
     depends_on: 
     - carte-master
-    env:
+    environment:
       CARTE_IS_MASTER: "N"
       CARTE_INCLUDE_MASTERS: "Y"
       CARTE_MASTER_NAME: "carte-master"

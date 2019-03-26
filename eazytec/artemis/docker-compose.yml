@@ -1,0 +1,17 @@
+version: "3"
+services: 
+  artemis:
+    image: vromero/activemq-artemis:latest-alpine
+    volumes:
+      - "/home/artemis/data:/var/lib/artemis/data"
+    ports:
+      - "8161:8161"
+      - "61616:61616"
+      - "61613:61613"
+      - "5672:5672"
+      - "1883:1883"
+    environment:
+      ARTEMIS_USERNAME: "eazytec"
+      ARTEMIS_PASSWORD: "Eazytec!123"
+      ARTEMIS_MIN_MEMORY: "1024M"
+      ARTEMIS_MAX_MEMORY: "2048M"
