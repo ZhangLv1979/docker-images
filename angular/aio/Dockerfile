@@ -1,4 +1,4 @@
-FROM nodejs:8
+FROM node:8
 
 RUN mkdir /app
 WORKDIR /app
