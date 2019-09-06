@@ -1,10 +1,10 @@
 # eazytec/jdk:8-alpine
+ARG jarname="echo.jar"
 FROM openjdk:8-jdk-alpine
 
 LABEL maintainer="zhanglv@eazytec.com"
 
-ENV JAR="echo.jar" \
-    JVM_ARGS="" \
+ENV JVM_ARGS="" \
     HOME="/opt/eazytec" \
     PATH="${PATH}:${HOME}"
 
@@ -14,7 +14,7 @@ RUN mkdir -p ${HOME} && \
 
 WORKDIR ${HOME}
 
-COPY "." "."
+ONBUILD COPY . .
 
 RUN chown -R eazytec:eazytec ${HOME} && \ 
     chmod -R 777 ${HOME}

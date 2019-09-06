@@ -1,3 +1,4 @@
+#eazytec/angular-cli:latest
 FROM node:10
 
 LABEL maintainer="Zhang Lv<zhanglv1979@163.com>"

@@ -1,1 +1,2 @@
-FROM gcr.io/kubernetes-helm/tiller:v2.10.0
+ARG version=v2.13.0
+FROM gcr.io/kubernetes-helm/tiller:${version}
